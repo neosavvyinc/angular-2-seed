@@ -3,7 +3,7 @@ import { ROUTER_DIRECTIVES }  from '@angular/router';
 
 @Component({
     selector: 'ns-navbar',
-    styles: [require('./navbar.component.css')],
+    styles: [require('./navbar.component.scss')],
     template: require('./navbar.component.html'),
     directives: [ROUTER_DIRECTIVES]
 })

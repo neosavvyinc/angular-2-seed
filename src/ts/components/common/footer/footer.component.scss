@@ -1,6 +1,8 @@
+@import '../../../../styles/global-variables';
+
 footer {
-    color: #111;
-    background-color: #F05A1E;
+    color: $brand-black;
+    background-color: $brand-primary;
     height: 50px;
     display: flex;
     justify-content: center;

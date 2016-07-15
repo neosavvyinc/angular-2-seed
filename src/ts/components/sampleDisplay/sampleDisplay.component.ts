@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'sampleDisplay',
-    styles: [require('./sampleDisplay.component.css')],
+    styles: [require('./sampleDisplay.component.scss')],
     template: require('./sampleDisplay.component.html')
 })
 

@@ -1,32 +1,17 @@
-html, body, div {
+body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background: #111;
-    color: #fff;
-}
-
-app {
-    display: flex;
-    flex: 1;
-    min-height: 100vh;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
 }
 
 #loading-indicator {
+    height: 100vh;
     display: flex;
     flex: 1;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     color: #F05A1E;
+    background-color: #111;
 }
 
 .sk-wandering-cubes {

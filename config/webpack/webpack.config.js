@@ -33,6 +33,12 @@ config.resolve = {
 };
 
 config.module = {
+    preLoaders: [
+        {
+            test: /\.json$/,
+            loader: 'json'
+        }
+    ],
     loaders: [
         {
             test: /\.ts$/,
@@ -49,8 +55,16 @@ config.module = {
             include: path.resolve('src/ts')
         },
         {
+            test: /\.scss$/,
+            loader: 'raw!postcss!sass',
+            include: path.resolve('src/ts')
+        },
+        {
             test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
-            loader: 'file?name=assets/[name].[hash].[ext]'
+            loader: 'file',
+            query: {
+                name: 'assets/[name].[hash].[ext]'
+            }
         }
     ]
 };
@@ -105,7 +119,12 @@ if (ENV_DEVELOPMENT) {
 
     config.module.loaders.push(
         {
-            test: /\.css$/,
+            test: /\.scss$/,
+            loader: 'style!css!postcss!sass',
+            exclude: path.resolve('src/ts')
+        },
+        {
+            test: /\.css/,
             loader: ExtractTextPlugin.extract('style', 'css?sourceMap'),
             exclude: path.resolve('src/ts')
         }
@@ -145,15 +164,15 @@ if (ENV_PRODUCTION){
 
     config.module.loaders.push(
         {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style', 'css?sourceMap!postcss'),
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract('style', 'sass', 'postcss'),
             exclude: path.resolve('src/ts')
         }
     );
 
     config.plugins.push(
         new WebpackMd5Hash(),
-        new ExtractTextPlugin('styles.[contenthash].css'),
+        new ExtractTextPlugin('styles.[contenthash].scss'),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             mangle: true,
@@ -174,13 +193,13 @@ if (ENV_TEST) {
 
     config.module.loaders.push(
         {
-            test: /\.css$/,
-            loader: ExtractTextPlugin.extract('style', 'css?sourceMap'),
+            test: /\.scss$/,
+            loader: ExtractTextPlugin.extract('style', 'sass'),
             exclude: path.resolve('src/ts')
         }
     );
 
     config.plugins.push(
-        new ExtractTextPlugin('[name].css')
+        new ExtractTextPlugin('[name].scss')
     );
 }
