@@ -6,7 +6,6 @@
             Find User
         </button>
     </form>
-    <user-display [user]="user"></user-display>
-    <repo-list [repos]="repos"></repo-list>
-    <error-message [error]="error"></error-message>
+    <user-display [user]="gitUser.user"></user-display>
+    <repo-list [repos]="gitUser.repos"></repo-list>
 </div>

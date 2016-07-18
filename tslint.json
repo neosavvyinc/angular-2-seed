@@ -45,7 +45,7 @@
 
     "array-bracket-spacing": [true, "never"],
     "block-spacing": [true, "always"],
-    "brace-style": [true, "truetbs", { "allowSingleLine": true }],
+    "brace-style": [true, "1tbs", { "allowSingleLine": true }],
     "variable-name": [true, "check-format"],
     "indent": [true, "spaces"],
     "no-trailing-whitespace": true,

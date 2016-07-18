@@ -4,15 +4,17 @@ import { HTTP_PROVIDERS } from '@angular/http';
 
 import '../styles/global-styles.scss';
 
-import NavbarComponent from './components/common/navbar/navbar.component';
-import FooterComponent from './components/common/footer/footer.component';
+import NavbarComponent from './features/common/components/navbar/navbar.component';
+import FooterComponent from './features/common/components/footer/footer.component';
+import ErrorHandlerComponent from './features/common/features/errorHandler/errorHandler.component.ts'
 
 @Component({
-    selector: 'app',
-    directives: [ROUTER_DIRECTIVES, NavbarComponent, FooterComponent],
+    selector: 'ns-ng2-app',
+    directives: [ROUTER_DIRECTIVES, NavbarComponent, FooterComponent, ErrorHandlerComponent],
     template:
         `
             <ns-navbar></ns-navbar>
+            <ns-error-handler></ns-error-handler>
             <main>
                 <router-outlet></router-outlet>
             </main>

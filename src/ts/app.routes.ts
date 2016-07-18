@@ -1,8 +1,8 @@
 import { provideRouter, RouterConfig } from '@angular/router';
 
-import homeRoutes from './components/home/home.routes';
-import sampleDisplayRoutes from './components/sampleDisplay/sampleDisplay.routes';
-import repoLookupRoutes from './components/repoLookup/repoLookup.routes';
+import homeRoutes from './features/home/home.routes';
+import sampleDisplayRoutes from './features/sampleDisplay/sampleDisplay.routes';
+import repoLookupRoutes from './features/repoLookup/repoLookup.routes';
 
 const routes: RouterConfig = [
     ...homeRoutes,
@@ -10,8 +10,6 @@ const routes: RouterConfig = [
     ...repoLookupRoutes
 ];
 
-const appRouterProviders = [
-    provideRouter(routes)
-];
+const appRouteProvider = provideRouter(routes);
 
-export default appRouterProviders;
+export default appRouteProvider;
