@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
     template: require('./sampleDisplay.component.html')
 })
 
-export class SampleDisplayComponent {}
+export default class SampleDisplayComponent {}
