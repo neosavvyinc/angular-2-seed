@@ -1,0 +1,24 @@
+@import './global-variables';
+
+
+html, body, div {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $brand-black;
+    color: $brand-white;
+}
+
+app {
+    display: flex;
+    flex: 1;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
     selector: 'ns-footer',
-    styles: [require('./footer.component.css')],
+    styles: [require('./footer.component.scss')],
     template: require('./footer.component.html')
 })
 
