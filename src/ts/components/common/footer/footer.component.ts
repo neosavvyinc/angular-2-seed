@@ -6,4 +6,4 @@ import { Component } from '@angular/core';
     template: require('./footer.component.html')
 })
 
-export class FooterComponent {}
+export default class FooterComponent {}
