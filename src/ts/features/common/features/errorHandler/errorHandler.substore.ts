@@ -1,9 +1,9 @@
 import { ActionReducer, Action } from '@ngrx/store';
 
-export const RESET_ERRORS = 'RESET_ERRORS';
-export const CREATE_ERROR = 'CREATE_ERROR';
+export const RESET_ERRORS: string = 'RESET_ERRORS';
+export const CREATE_ERROR: string = 'CREATE_ERROR';
 
-export const errorStackReducer: ActionReducer<Object[]> = (state: Error[] = [], action: Action) => {
+export const errorStackReducer: ActionReducer<Error[]> = (state: Error[] = [], action: Action) => {
     switch (action.type) {
         case RESET_ERRORS:
             console.log("Resetting the error stack.");
