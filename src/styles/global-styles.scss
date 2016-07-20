@@ -1,6 +1,5 @@
 @import './global-variables';
 
-
 html, body, div {
     margin: 0;
     padding: 0;
@@ -12,7 +11,7 @@ body {
     color: $brand-white;
 }
 
-app {
+ns-ng2-app {
     display: flex;
     flex: 1;
     min-height: 100vh;
