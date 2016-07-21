@@ -15,7 +15,7 @@ import GithubService from './services/githubService.service';
 })
 
 export default class SampleFormComponent {
-    private gitUser: Object;
+    private gitUser: Object = {test: "hey"};
     private subscription: any;
 
     constructor (private githubService: GithubService, private store: Store<any>) {
@@ -25,6 +25,6 @@ export default class SampleFormComponent {
     };
 
     private getUserAndRepos = (name: string) => {
-        this.githubService.getGitUser(name);
+        return this.githubService.getGitUser(name);
     };
 }
