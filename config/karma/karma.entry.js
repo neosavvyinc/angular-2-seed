@@ -10,8 +10,8 @@ require('zone.js');
 require('zone.js/dist/async-test');
 require('zone.js/dist/fake-async-test');
 
-var browser = require('@angular/platform-browser-dynamic/testing');
-var testing = require('@angular/core/testing');
+const browser = require('@angular/platform-browser-dynamic/testing');
+const testing = require('@angular/core/testing');
 
 Error.stackTraceLimit = Infinity;
 jasmine.DEFAULT_TIMEOUT_INTERVAL = 2000;
@@ -22,7 +22,7 @@ testing.setBaseTestProviders(
 );
 
 
-var context = require.context('../../test/ts/', true, /\.spec.ts$/);
+const context = require.context('../../test/ts/', true, /\.spec.ts$/);
 
 context.keys()
     .forEach(context);

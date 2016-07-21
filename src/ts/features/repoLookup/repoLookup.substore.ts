@@ -1,8 +1,8 @@
 import { ActionReducer, Action } from '@ngrx/store';
 import * as _ from 'lodash';
 
-export const RESET_GITUSER = 'RESET_GITUSER_DATA';
-export const SET_GITUSER = 'SET_GITUSER_DATA';
+export const RESET_GITUSER: string = 'RESET_GITUSER_DATA';
+export const SET_GITUSER: string = 'SET_GITUSER_DATA';
 
 export const gitUserReducer: ActionReducer<Object> = (state: Object = {}, action: Action) => {
     switch (action.type) {

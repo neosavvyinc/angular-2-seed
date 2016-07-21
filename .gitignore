@@ -1,4 +1,6 @@
 /node_modules
 /.idea
 /dist
+/typings
+/config/constants.ts
 npm-debug.log

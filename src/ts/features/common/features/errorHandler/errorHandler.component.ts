@@ -32,7 +32,7 @@ export default class ErrorHandlerComponent implements AfterContentInit {
         this.subscription = this.store
             .select('errorStack')
             .subscribe((errorStack: Error[]) => {
-                const lastError = _.last(errorStack);
+                const lastError: Error = _.last(errorStack);
                 if (lastError) {
                     const toast: Toast = {
                         type: 'error',

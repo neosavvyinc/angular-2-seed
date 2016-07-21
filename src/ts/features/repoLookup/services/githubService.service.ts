@@ -6,6 +6,8 @@ import * as _ from 'lodash';
 import { Store } from '@ngrx/store';
 import { SET_GITUSER } from '../repoLookup.substore';
 
+import { githubApiAccessToken } from '../../../../../config/constants';
+
 // this import is for the commented-out dummy post method, below
 // import { Headers, RequestOptions } from '@angular/http';
 
@@ -15,9 +17,9 @@ export default class GithubService {
     constructor (private http: Http, private store: Store<any>) {}
 
     private gitUrl: string = 'https://api.github.com/users';
-    private reqParams: string = '?access_token=2cf502059c5d916f26b8dcaac66b924062d9a5b9';
+    private reqParams: string = `?access_token=${githubApiAccessToken}`;
 
-    getGitUser (name: string): any {
+    public getGitUser (name: string): any {
         return Observable
             .combineLatest(this.getUser(name), this.getRepos(name))
             .subscribe(
@@ -30,19 +32,12 @@ export default class GithubService {
                     this.store.dispatch({ type: SET_GITUSER, payload: gitUser})
                 },
                 error => {
-                    const errMsg = error.message ? error.message
+                    const errMsg: string = error.message ? error.message
                         : error.status ? `${error.status} - ${error.statusText}`
                         : 'Server error';
                     this.store.dispatch({type: 'CREATE_ERROR', payload: new Error(errMsg)})
                 }
             )
-    }
-
-    private handleError (error: any) {
-        let errMsg = (error.message) ? error.message
-            : error.status ? `${error.status} - ${error.statusText}`
-            : 'Server error';
-        this.store.dispatch({type: 'CREATE_ERROR', payload: errMsg});
     }
 
     private getUser (name: string): Observable<Object> {

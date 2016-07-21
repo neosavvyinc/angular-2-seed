@@ -165,14 +165,19 @@ if (ENV_PRODUCTION){
     config.module.loaders.push(
         {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract('style', 'sass', 'postcss'),
+            loader: 'style!css!postcss!sass',
+            exclude: path.resolve('src/ts')
+        },
+        {
+            test: /\.css/,
+            loader: ExtractTextPlugin.extract('style', 'css'),
             exclude: path.resolve('src/ts')
         }
     );
 
     config.plugins.push(
         new WebpackMd5Hash(),
-        new ExtractTextPlugin('styles.[contenthash].scss'),
+        new ExtractTextPlugin('styles.[contenthash].css'),
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
             mangle: true,

@@ -1,5 +1,14 @@
 # Neosavvy's Angular 2 Seed
 
+### Installation:
+* Node version 6.3.0 was used to create this seed application; Node 6+ is required to run some npm scripts
+* You can create a `githubApiAccessToken` [here](https://github.com/settings/tokens)
+
+* `npm install` -> installs all dependencies, sets up typings directory
+* `npm run setup` -> prompts for github access token, writes key to the proper location
+* `npm start` -> starts a webpack-dev-server pointing at localhost:3000
+* For additional npm scripts including `build`, `test`, and `lint`, see `package.json`
+
 ### Architecture Overview
 * The `src/ts/features` folder is subdivided into individual features, which are determined by slices of application state. A feature contains:
     * a parent component
