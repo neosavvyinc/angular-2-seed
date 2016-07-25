@@ -199,12 +199,17 @@ if (ENV_TEST) {
     config.module.loaders.push(
         {
             test: /\.scss$/,
-            loader: ExtractTextPlugin.extract('style', 'sass'),
+            loader: 'style!css!postcss!sass',
+            exclude: path.resolve('src/ts')
+        },
+        {
+            test: /\.css/,
+            loader: ExtractTextPlugin.extract('style', 'css?sourceMap'),
             exclude: path.resolve('src/ts')
         }
     );
 
     config.plugins.push(
-        new ExtractTextPlugin('[name].scss')
+        new ExtractTextPlugin('[name].css')
     );
 }
